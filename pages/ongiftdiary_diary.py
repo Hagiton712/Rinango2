@@ -264,18 +264,3 @@ def insert_ondata(date, relationship, scene, detail):
     except Exception as e:
         st.error(f"データ追加中にエラーが発生しました: {e}")
 
-# --- ここから新しく追加する！ ---
-st.header("データ削除コーナー🧹")
-#git push --set-upstream origin main
-
-if st.button("かじゅを含むデータを削除する"):
-    conn = sqlite3.connect('on_data.db')  # ←あなたのDBファイル名に変えてね！
-    c = conn.cursor()
-    
-    # かじゅを含むperson_nameだけ削除
-    c.execute("DELETE FROM ondata WHERE person_name LIKE ?", ('%かじゅ%',))
-    conn.commit()
-    conn.close()
-
-    st.success("「かじゅ」を含むデータを削除しました！")
-# --- ここまで追加 ---
