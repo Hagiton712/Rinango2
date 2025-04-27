@@ -66,6 +66,8 @@ def load_events_from_db():
 
 df = load_events_from_db()
 
+
+
 # --- URLから選択されたイベントのIDを取得 ---
 query_params = st.query_params
 selected_id = int(query_params.get("selected_id", [0])[0])
@@ -262,4 +264,17 @@ def insert_ondata(date, relationship, scene, detail):
     except Exception as e:
         st.error(f"データ追加中にエラーが発生しました: {e}")
 
+# --- ここから新しく追加する！ ---
+st.header("データ削除コーナー🧹")
 
+if st.button("かじゅを含むデータを削除する"):
+    conn = sqlite3.connect('your_database_name.db')  # ←あなたのDBファイル名に変えてね！
+    c = conn.cursor()
+    
+    # かじゅを含むperson_nameだけ削除
+    c.execute("DELETE FROM あなたのテーブル名 WHERE person_name LIKE ?", ('%かじゅ%',))
+    conn.commit()
+    conn.close()
+
+    st.success("「かじゅ」を含むデータを削除しました！")
+# --- ここまで追加 ---
