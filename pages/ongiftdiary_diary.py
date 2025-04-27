@@ -266,7 +266,7 @@ def insert_ondata(date, relationship, scene, detail):
 
 # --- ここから新しく追加する！ ---
 st.header("データ削除コーナー🧹")
-git push --set-upstream origin main
+#git push --set-upstream origin main
 
 if st.button("かじゅを含むデータを削除する"):
     conn = sqlite3.connect('on_data.db')  # ←あなたのDBファイル名に変えてね！
