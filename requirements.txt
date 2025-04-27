@@ -1,6 +1,9 @@
+setuptools
+japanize-matplotlib
 streamlit
-openai
 matplotlib
-japanize_matplotlib
+openai
+pandas
 numpy
 python-dotenv
+streamlit-calendar
